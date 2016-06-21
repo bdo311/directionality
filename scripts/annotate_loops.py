@@ -58,7 +58,8 @@ total_good = 0
 for row in reader:
     ctr += 1
     if ctr % 1000000 == 0: print "Pair line {}".format(ctr)
-    if math.fabs(int(row[5]) - int(row[2])) < 20000: continue
+    if math.fabs(int(row[5]) - int(row[2])) < 20000: continue  # get rid of cis contacts
+    if row[1] != row[4]: continue  # get rid of trans contacts
     twentyctr += 1
     if twentyctr % 1000000 == 0: print "Pair line (for >20kb pairs) {}".format(twentyctr)
     try: 
